@@ -11,11 +11,23 @@ $data = array(
 );
 file_put_contents('data.json', json_encode($data));
 
+// Scope
+$scopes = array(
+    'profile',
+    'email',
+);
+// Scope 指定があれば追加
+if ($_REQUEST['calendar']) {
+    $scopes[] = 'https://www.googleapis.com/auth/calendar';
+}
+// Scope 値を作成
+$scope = implode(' ', $scopes);
+
 $auth_url = 'https://accounts.google.com/o/oauth2/auth';
 $params = array(
     'client_id' => $_POST['client_id'],
     'redirect_uri' => $callback_url,
-    'scope' => 'profile email',
+    'scope' => $scope,
     'response_type' => 'code',
     'approval_prompt' => 'force',
     'access_type' => 'offline'

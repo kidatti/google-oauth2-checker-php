@@ -16,9 +16,16 @@
                 <small class="text-muted">Google APIの認証情報から取得したクライアントID（.apps.googleusercontent.comで終わる）</small>
             </div>
             <div class="form-group">
-                <label for="clientId">Client Secret（非公開）</label>
+                <label for="clientSecret">Client Secret（非公開）</label>
                 <input name="client_secret" type="text" class="form-control" id="clientSecret" placeholder="Client Secret">
                 <small class="text-muted">Google 認証情報から取得したクライアントシークレット</small>
+            </div>
+            <div class="form-group">
+                Scope（公開・任意）
+            </div>
+            <div class="form-group form-check">
+                <input type="checkbox" name="calendar" class="form-check-input" id="checkbox1">
+                <label class="form-check-label" for="checkbox1">Calendar</label>
             </div>
             <button type="submit" class="btn btn-primary">次へ</button>
         </form>
